@@ -57,7 +57,6 @@
     .carousel-slides {
       display: grid;
       grid-template-columns: 100%;
-      transition: transform 0.3s ease;
     }
 
     .carousel-slide {
@@ -74,6 +73,12 @@
     }
 
     .carousel-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .carousel-slide video {
       width: 100%;
       height: auto;
       display: block;
@@ -149,7 +154,7 @@
 <body>
   <div class="portfolio">
 
-    <!-- Item 1: KZUUFEST Posters -->
+    <!-- Item 1: KZUUFEST -->
     <div class="media-item">
       <div class="carousel-wrapper">
         <button class="carousel-btn" onclick="move('c1', -1)">
@@ -159,8 +164,12 @@
           <div class="carousel-slides" id="c1-slides">
             <div class="carousel-slide"><img src="black_and_white_cougar_poster.png" alt="KZUUFEST poster"></div>
             <div class="carousel-slide"><img src="IMG_6200.jpg" alt="KZUUFEST posters on board"></div>
+            <!-- VIDEO 1: replace kzuufestclipslowed.mp4 with your actual filename -->
+            <div class="carousel-slide"><video src="kzuufestclipslowed.mp4" controls playsinline></video></div>
+            <!-- VIDEO 2: replace kzuusetreel.mp4 with your actual filename -->
+            <div class="carousel-slide"><video src="kzuusetreel.mp4" controls playsinline></video></div>
           </div>
-          <div class="carousel-counter" id="c1-counter">1 / 2</div>
+          <div class="carousel-counter" id="c1-counter">1 / 4</div>
         </div>
         <button class="carousel-btn" onclick="move('c1', 1)">
           <svg viewBox="0 0 11 20" fill="none"><polyline points="2,1 9,10 2,19" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -169,34 +178,6 @@
       <p class="media-title">KZUUFEST 2026</p>
       <p class="media-desc">Designed and produced 300+ posters to advertise student-led radio event, assisted in event logistics and graphics, and performed music to a live audience</p>
     </div>
-
-
-
-    <!-- Item 3: RIPSQUAD Compilation CD -->
-    <div class="media-item">
-      <div class="carousel-wrapper">
-        <button class="carousel-btn" onclick="move('c2', -1)">
-          <svg viewBox="0 0 11 20" fill="none"><polyline points="9,1 2,10 9,19" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="carousel" id="c2">
-          <div class="carousel-slides" id="c2-slides">
-            <div class="carousel-slide"><img src="ripsquadcd1.jpg" alt="RIPSQUAD CD disc front"></div>
-            <div class="carousel-slide"><img src="ripsquadcd2.jpg" alt="RIPSQUAD CD tracklist"></div>
-            <div class="carousel-slide"><img src="ripsquadcd3.jpg" alt="RIPSQUAD CD collection"></div>
-            <div class="carousel-slide"><img src="ripsquadcd4.jpg" alt="RIPSQUAD CD cases"></div>
-            <div class="carousel-slide"><img src="ripsquadcd5.png" alt="RIPSQUAD CD reference images"></div>
-          </div>
-          <div class="carousel-counter" id="c2-counter">1 / 5</div>
-        </div>
-        <button class="carousel-btn" onclick="move('c2', 1)">
-          <svg viewBox="0 0 11 20" fill="none"><polyline points="2,1 9,10 2,19" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-      <p class="media-title">RIPSQUAD Compilation CD (2025)</p>
-      <p class="media-desc">Fully custom disc and packaging using laser engraved disc images and vintage jewel cases with vinyl labels. 20 made</p>
-    </div>
-
-
 
     <div class="footer">
       <span>© 2026 Linus King — <a href="about.html">About</a></span>
@@ -211,6 +192,8 @@
       const slides = document.getElementById(id + '-slides').children;
       const total = slides.length;
       if (state[id] === undefined) state[id] = 0;
+      const currentVideo = slides[state[id]].querySelector('video');
+      if (currentVideo) currentVideo.pause();
       slides[state[id]].classList.remove('active');
       state[id] = (state[id] + dir + total) % total;
       slides[state[id]].classList.add('active');
