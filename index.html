@@ -186,7 +186,25 @@
 
     <!-- Item 0: Double-Layered Dress Shirt -->
     <div class="media-item">
-      <div style="width:100%; background:#f5f5f5; aspect-ratio:4/3; margin-bottom:0.85rem;"></div>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn" onclick="move('c0', -1)">
+          <svg viewBox="0 0 11 20" fill="none"><polyline points="9,1 2,10 9,19" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="carousel" id="c0">
+          <div class="carousel-slides" id="c0-slides">
+            <div class="carousel-slide"><img src="shirtback.png" alt="Dress shirt back"></div>
+            <div class="carousel-slide"><img src="shirtfront.png" alt="Dress shirt front"></div>
+            <div class="carousel-slide"><img src="shirtfront2.png" alt="Dress shirt front detail"></div>
+            <div class="carousel-slide"><img src="shirtcloseup.png" alt="Dress shirt cuff closeup"></div>
+            <div class="carousel-slide"><img src="shirtpatterns.png" alt="Dress shirt patterns and muslin"></div>
+            <div class="carousel-slide"><img src="shirttechflat.png" alt="Dress shirt tech flat"></div>
+          </div>
+          <div class="carousel-counter" id="c0-counter">1 / 6</div>
+        </div>
+        <button class="carousel-btn" onclick="move('c0', 1)">
+          <svg viewBox="0 0 11 20" fill="none"><polyline points="2,1 9,10 2,19" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
       <p class="media-title">Double-Layered Dress Shirt (2026)</p>
       <p class="media-desc">100% cotton double-layered dress shirt utilizing up-cycled vintage t-shirts. Complete design and construction process</p>
     </div>
@@ -269,7 +287,7 @@
     </div>
 
     <div class="footer">
-      <span>© 2026 Linus King — <a href="about.html">About</a> — <a href="https://www.linkedin.com/in/linus-king/" target="_blank">LinkedIn</a></span>
+      <span>© 2026 Linus King — <a href="about.html">About</a></span>
       <span><a href="mailto:linusfking@gmail.com">linusfking@gmail.com</a></span>
     </div>
 
